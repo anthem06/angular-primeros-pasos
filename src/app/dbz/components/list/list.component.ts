@@ -10,7 +10,7 @@ import { Character } from '../../interfaces/character.interface';
 export class ListComponentDbz {
 
   @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter();
+  public onDelete: EventEmitter<string> = new EventEmitter();
 
 
   //En caso de que no reciba datos enviara los de abajo como default
@@ -20,8 +20,12 @@ export class ListComponentDbz {
     power: 10
   }];
 
-  onDeleteCharacter(index: number): void {
-    console.log(index);
-    this.onDelete.emit(index);
+  onDeleteCharacter(id?: string): void {
+
+    if (!id) return;
+
+    console.log(id);
+
+    this.onDelete.emit(id);
   }
  }
