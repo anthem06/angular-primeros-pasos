@@ -5,7 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist",
+    "build:href": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
+    "delete:docs": "del docs",
+    "copy:dist": "copyfiles dist/bases/browser/* ./docs -fcl",
     "test": "ng test"
   },
   "private": true,
